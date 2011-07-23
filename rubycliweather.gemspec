@@ -25,9 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/rubycliweather.rb",
-    "rubycliweather.gemspec",
-    "test/helper.rb",
-    "test/test_rubycliweather.rb"
+    "rubycliweather.gemspec"
   ]
   s.homepage = %q{http://github.com/ip2k/rubycliweather}
   s.licenses = ["MIT"]
