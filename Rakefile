@@ -17,6 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rubycliweather"
   gem.add_dependency 'nokogiri'
   gem.add_dependency 'open-uri'
+  gem.executables = ['rubycliweather']
   gem.homepage = "http://github.com/ip2k/rubycliweather"
   gem.license = "Creative Commons by-nc-sa"
   gem.summary = "Simple weather forecasts right in your terminal"
