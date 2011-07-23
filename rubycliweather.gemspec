@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/rubycliweather.rb",
+    "rubycliweather.gemspec",
     "test/helper.rb",
     "test/test_rubycliweather.rb"
   ]
