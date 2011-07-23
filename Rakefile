@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rubycliweather"
   gem.homepage = "http://github.com/ip2k/rubycliweather"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Simple weather forecasts right in your terminal"
+  gem.description = "rubycliweather provides an easy-to-use CLI that harnesses the Wunderground XML API and delivers pretty forecasts FAST right to your terminal"
   gem.email = "github@seanp2k.endjunk.com"
   gem.authors = ["ip2k"]
   # dependencies defined in Gemfile

@@ -1,6 +1,8 @@
 = rubycliweather
 
-Description goes here.
+Simple Ruby for accessing the Wunderground API and getting forecast data (and more!) right from your favorite shell — Read more click to edit
+
+http://seanp2k.com 
 
 == Contributing to rubycliweather
  
@@ -13,7 +15,4 @@ Description goes here.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 == Copyright
-
-Copyright (c) 2011 ip2k. See LICENSE.txt for
-further details.
-
+rubycliweather by ip2k is licensed under a Creative Commons-Attribution-NonCommercial-ShareAlike 3.0 Unported License. 
