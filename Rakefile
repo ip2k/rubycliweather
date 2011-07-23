@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rubycliweather"
   gem.add_dependency 'nokogiri'
-  gem.add_dependency 'open-uri'
+#  gem.add_dependency 'open-uri'
   gem.executables = ['rubycliweather']
   gem.homepage = "http://github.com/ip2k/rubycliweather"
   gem.license = "Creative Commons by-nc-sa"
