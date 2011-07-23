@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
+
+# our actual weather API interface code.  Simple, eh?
+def getweather(somelocation)
+  $doc = Nokogiri::XML(open("http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=#{somelocation}"))
+end
+
+# configure a default location
+# this can be a zipcode, airport code, city name + state...whatever Wunderground...
+# ...will accept.  Don't worry about spaces at this point.
+$defaultlocation = '48104'
+
+# init 'location' as a blank global var (don't touch this)
+$location = ""
+
+# if we're being called with no args, set the location to our default location
+if ARGV.first.nil?
+  $location = $defaultlocation
+# otherwise, parse the args, encode them as URI-safe, and add a '+' to the end of each one
+else
+  ARGV.each { |a| $location << URI::encode(a) << '+' }
+# as a hackey fix to the last +, just use chop! to strip it.
+  $location.chop!
+end
+
+# try to get the forecast
+getweather($location)
+
+# handle cases where the args supplied are valid, but Wunderground doesn't return forecast info
+# first, look to see if there are any child nodes under simpleforecast
+if $doc.xpath('/forecast/simpleforecast').children.to_s.chomp.empty?
+  puts "Wunderground API didn't like location #{$location} , retrying with #{$defaultlocation}.", "\n"
+  # set location back to the default location and re-try getting the weather.
+  # TODO: account for cases where the default location is also invalid / returns no forecast info
+  $location = $defaultlocation
+  getweather($location)
+end
+
+# use xpath to parse the XML and operate on each item.  Should be pretty self-explanatory; we're not doing anything fancy here.
+# we're really only using '.each' on this first block to shorten the xpath needed for each item.
+$doc.xpath('/forecast/moon_phase').each { 
+  |node|
+  moon = node.xpath('percentIlluminated').text
+  timehour = node.xpath('current_time/hour').text
+  timeminute = node.xpath('current_time/minute').text
+  sunsethour = node.xpath('sunset/hour').text
+  sunsetminute = node.xpath('sunset/minute').text
+  sunrisehour = node.xpath('sunrise/hour').text
+  sunriseminute = node.xpath('sunrise/minute').text
+  puts "Location: #{$location}", "Sunrise: #{sunrisehour}:#{sunriseminute}"
+  puts "Sunset: #{sunsethour}:#{sunsetminute}", "Moon visible: #{moon}%", "\n"
+}
+
+$doc.xpath('/forecast/simpleforecast/forecastday').each { 
+  |node| 
+  nodeid = node.xpath('period').text
+  date = node.xpath('date/pretty').text
+  dayname = node.xpath('date/weekday').text
+  conditions = node.xpath('conditions').text
+  high = node.xpath('high/fahrenheit').text
+  low = node.xpath('low/fahrenheit').text
+  pop = node.xpath('pop').text
+  puts "#{dayname} - #{conditions} - #{low}F to #{high}F - #{pop}% chance of rain"
+# we could also do this, but the above is *much* more readable
+# puts dayname << ' - ' << conditions << ' - ' << low << 'F to ' << high << 'F - ' << pop << '% chance of rain'
+}
