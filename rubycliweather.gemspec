@@ -10,8 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ip2k"]
   s.date = %q{2011-07-22}
+  s.default_executable = %q{rubycliweather}
   s.description = %q{rubycliweather provides an easy-to-use CLI that harnesses the Wunderground XML API and delivers pretty forecasts FAST right to your terminal}
   s.email = %q{github@seanp2k.endjunk.com}
+  s.executables = ["rubycliweather"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -24,7 +26,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/rubycliweather.rb",
+    "bin/rubycliweather.rb",
     "rubycliweather.gemspec"
   ]
   s.homepage = %q{http://github.com/ip2k/rubycliweather}
