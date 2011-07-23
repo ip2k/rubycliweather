@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ip2k"]
-  s.date = %q{2011-07-22}
+  s.date = %q{2011-07-23}
   s.default_executable = %q{rubycliweather}
   s.description = %q{rubycliweather provides an easy-to-use CLI that harnesses the Wunderground XML API and delivers pretty forecasts FAST right to your terminal}
   s.email = %q{github@seanp2k.endjunk.com}
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "bin/rubycliweather.rb",
+    "bin/rubycliweather",
     "rubycliweather.gemspec"
   ]
   s.homepage = %q{http://github.com/ip2k/rubycliweather}
@@ -45,7 +45,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
-      s.add_runtime_dependency(%q<open-uri>, [">= 0"])
     else
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
@@ -53,7 +52,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<open-uri>, [">= 0"])
     end
   else
     s.add_dependency(%q<nokogiri>, [">= 0"])
@@ -62,7 +60,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<open-uri>, [">= 0"])
   end
 end
 
