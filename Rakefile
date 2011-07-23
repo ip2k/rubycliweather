@@ -15,8 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rubycliweather"
+  gem.add_dependency 'nokogiri'
+  gem.add_dependency 'open-uri'
   gem.homepage = "http://github.com/ip2k/rubycliweather"
-  gem.license = "MIT"
+  gem.license = "Creative Commons by-nc-sa"
   gem.summary = "Simple weather forecasts right in your terminal"
   gem.description = "rubycliweather provides an easy-to-use CLI that harnesses the Wunderground XML API and delivers pretty forecasts FAST right to your terminal"
   gem.email = "github@seanp2k.endjunk.com"
@@ -25,12 +27,14 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
+=begin
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
 end
+=end
 
 require 'rcov/rcovtask'
 Rcov::RcovTask.new do |test|
@@ -42,8 +46,8 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
+require 'rdoc/task'
+RDoc::Task.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'

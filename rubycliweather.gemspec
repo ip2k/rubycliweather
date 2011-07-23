@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
     "rubycliweather.gemspec"
   ]
   s.homepage = %q{http://github.com/ip2k/rubycliweather}
-  s.licenses = ["MIT"]
+  s.licenses = ["Creative Commons by-nc-sa"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{Simple weather forecasts right in your terminal}
@@ -42,12 +42,16 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
+      s.add_runtime_dependency(%q<open-uri>, [">= 0"])
     else
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<nokogiri>, [">= 0"])
+      s.add_dependency(%q<open-uri>, [">= 0"])
     end
   else
     s.add_dependency(%q<nokogiri>, [">= 0"])
@@ -55,6 +59,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<nokogiri>, [">= 0"])
+    s.add_dependency(%q<open-uri>, [">= 0"])
   end
 end
 
