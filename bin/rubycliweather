@@ -40,7 +40,7 @@ end
 
 # use xpath to parse the XML and operate on each item.  Should be pretty self-explanatory; we're not doing anything fancy here.
 # we're really only using '.each' on this first block to shorten the xpath needed for each item.
-$doc.xpath('/forecast/moon_phase').each { 
+$doc.xpath('/forecast/moon_phase').each {
   |node|
   moon = node.xpath('percentIlluminated').text
   timehour = node.xpath('current_time/hour').text
@@ -49,10 +49,19 @@ $doc.xpath('/forecast/moon_phase').each {
   sunsetminute = node.xpath('sunset/minute').text
   sunrisehour = node.xpath('sunrise/hour').text
   sunriseminute = node.xpath('sunrise/minute').text
-  puts "Location: #{$location}", "Sunrise: #{sunrisehour}:#{sunriseminute}"
+  puts "\n", "Location: #{$location}", "Sunrise: #{sunrisehour}:#{sunriseminute}"
   puts "Sunset: #{sunsethour}:#{sunsetminute}", "Moon visible: #{moon}%", "\n"
 }
 
+$doc.xpath('/forecast/txt_forecast').each {
+    |node|
+    currentconditions = node.xpath('forecastday/fcttext').first.text
+    periodtitle = node.xpath('forecastday/title').first.text
+    time = node.xpath('date').text
+    puts "Current conditions for [the] #{periodtitle} as of #{time}: #{currentconditions}", "\n", "Forecast:", "\n"
+}
+
+#puts "Current conditions: #{$doc.xpath('/forecast/txt_forecast/forecastday/fcttext').text}", "\n", "Forecast:", "\n"
 $doc.xpath('/forecast/simpleforecast/forecastday').each { 
   |node| 
   nodeid = node.xpath('period').text
